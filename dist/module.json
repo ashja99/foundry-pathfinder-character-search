@@ -1,6 +1,6 @@
 {
-  "name": "module",
-  "title": "New Module",
+  "name": "foundry-pathfinder-character-search",
+  "title": "Character Search",
   "description": "",
   "version": "This is auto replaced",
   "library": "false",
@@ -9,14 +9,8 @@
   "compatibleCoreVersion": "0.7.9",
   "authors": [
     {
-      "name": "Blackcloud",
-      "url": "https://github.com/Blackcloud010",
-      "discord": "Blackcloud010#5426"
-    },
-    {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "ashja99",
+      "url": "https://github.com/ashja99"
     }
   ],
   "dependencies": [
@@ -29,7 +23,7 @@
     "module.js"
   ],
   "scripts": [
-
+    
   ],
   "styles": [
     "/styles/module.css"

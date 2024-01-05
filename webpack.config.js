@@ -2,7 +2,6 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
-const globImporter = require("node-sass-glob-importer");
 const path = require("path");
 const glob = require("glob");
 
@@ -23,7 +22,7 @@ module.exports = (env) => {
     const isDevelopment = environment.mode === "development";
 
     const config = {
-        entry: "./src/module.ts",
+        entry: "./src/foundry-pathfinder-character-search.ts",
         watch: environment.watch,
         devtool: "inline-source-map",
         stats: "minimal",
@@ -38,7 +37,9 @@ module.exports = (env) => {
         },
         devServer: {
             hot: true,
-            writeToDisk: true,
+            devMiddleware: {
+                writeToDisk: true,
+            },
             proxy: [
                 {
                     context: (pathname) => {
@@ -90,9 +91,7 @@ module.exports = (env) => {
                             loader: "sass-loader",
                             options: {
                                 sourceMap: isDevelopment,
-                                sassOptions: {
-                                    importer: globImporter(),
-                                },
+                                sassOptions: {},
                             },
                         },
                     ],
