@@ -1,34 +1,8 @@
-import { TemplatePreloader } from "./module/helper/TemplatePreloader";
 
-Hooks.once("init", async () => {
-    console.log("=============================HMR============================")
+console.log('hello world from foundry-pathfinder-character-search.ts still working');
+
+Hooks.on('renderCharacterSheetPF2e', (charactersheet, html, data) => {
+	console.log('character sheet rendering: ',charactersheet);
+	console.log('html data is: ', html[0].innerHTML);
+	console.log('hook data is: ', data.actor);
 });
-
-Hooks.once("ready", async () => {
-    
-});
-
-
-if (process.env.NODE_ENV === "development") {
-    if (module.hot) {
-        module.hot.accept();
-
-        if (module.hot.status() === "apply") {
-            for (const template in _templateCache) {
-                if (Object.prototype.hasOwnProperty.call(_templateCache, template)) {
-                    delete _templateCache[template];
-                }
-            }
-
-            TemplatePreloader.preloadHandlebarsTemplates().then(() => {
-                for (const application in ui.windows) {
-                    if (Object.prototype.hasOwnProperty.call(ui.windows, application)) {
-                        ui.windows[application].render(true);
-                    }
-                }
-            });
-        }
-    }
-}
-
-console.log("Hello Worlld!!! ;) 2");
