@@ -31,5 +31,17 @@
       "type": "setup",
       "url": "https://d29fhpw069ctt2.cloudfront.net/icon/image/47988/preview.svg"
     }
-  ]
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system"
+      }
+    ]
+  },
+  "compatibility": {
+    "minimum": "0.7.9",
+    "verified": "0.7.9"
+  }
 }
