@@ -1,4 +1,4 @@
-class FoundryPathfinderCharacterSearch {
+class CharacterSearch {
 	public character: any;
 
 	constructor(character: any) {

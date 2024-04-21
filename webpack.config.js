@@ -8,7 +8,7 @@ const glob = require("glob");
 const allTemplates = () => {
     return glob
         .sync("**/*.html", { cwd: path.join(__dirname, "static/templates") })
-        .map((file) => `"modules/template/templates/${file}"`)
+        .map((file) => `"modules/templates/${file}"`)
         .join(", ");
 };
 
@@ -22,7 +22,7 @@ module.exports = (env) => {
     const isDevelopment = environment.mode === "development";
 
     const config = {
-        entry: "./src/foundry-pathfinder-character-search.ts",
+        entry: "./src/index.ts",
         watch: environment.watch,
         devtool: "inline-source-map",
         stats: "minimal",
