@@ -28,7 +28,7 @@ module.exports = (env) => {
         stats: "minimal",
         mode: environment.mode,
         resolve: {
-            extensions: [".wasm", ".mjs", ".ts", ".js", ".json"],
+            extensions: [".ts", ".js"],
         },
         output: {
             filename: "module.js",

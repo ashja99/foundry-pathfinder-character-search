@@ -1,0 +1,23 @@
+.character-search-result .description {
+	font-size: 0.875rem;
+	margin-bottom: 1rem;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+	flex-basis: auto;
+}
+
+.character-search-result .description.open {
+	max-height: 1000px; /* Adjust this value to fit your content */
+}
+
+.character-search-result .title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+.character-search-result .type {
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+}

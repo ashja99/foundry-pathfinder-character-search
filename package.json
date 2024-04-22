@@ -39,5 +39,8 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^4.15.1",
     "webpack-import-glob-loader": "^1.6.3"
+  },
+  "dependencies": {
+    "flexsearch": "^0.7.43"
   }
 }
