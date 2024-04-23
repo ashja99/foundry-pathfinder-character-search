@@ -2,7 +2,7 @@
   "name": "foundry-pathfinder-character-search",
   "title": "Character Search",
   "description": "",
-  "version": "This is auto replaced",
+  "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
   "minimumCoreVersion": "0.7.9",
@@ -32,7 +32,9 @@
       "url": "https://d29fhpw069ctt2.cloudfront.net/icon/image/47988/preview.svg"
     }
   ],
-  "download": "https://github.com/ashja99/foundry-pathfinder-character-search/releases/download/test/module.zip",
+  "url": "#{URL}#",
+  "manifest": "#{MANIFEST}#",
+  "download": "#{DOWNLOAD}#",
   "relationships": {
     "systems": [
       {
