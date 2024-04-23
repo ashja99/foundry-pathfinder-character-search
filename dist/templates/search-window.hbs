@@ -5,9 +5,11 @@
 		{{#each results}}
 			<div class="character-search-result">
 				<div class="flexrow">
-					<div class="title flex1">{{doc.title}}</div>
-					<div class="type flex2">{{doc.type}}</div>
-					<div class="description" >{{doc.description}}</div>
+					<div class="title flex2">{{doc.title}}</div>
+					<div class="type flex3">{{doc.type}}</div>
+					<div class="description">
+						{{editor enrichedDescription target="content" button=false editable=false}}
+					</div>
 				</div>
 			</div>
 		{{/each}}

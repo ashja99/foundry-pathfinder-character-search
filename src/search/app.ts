@@ -42,14 +42,24 @@ export class SearchAppConfig extends FormApplication {
 		}
 	}
 
-	getData(): FormApplication.Data<object, FormApplicationOptions> {
+	async getData(): Promise<FormApplication.Data<object, FormApplicationOptions>> {
+		const searchResults = this.searchService
+			.searchCharacter(this.character.actor._id, this.query)
+			.sort((a, b) => a.order - b.order)
+			.map(async (result) => {
+				return {
+					...result,
+					enrichedDescription: await TextEditor.enrichHTML(result.doc.description),
+				};
+			});
 		return {
 			character: this.character,
-			results: this.searchService.searchCharacter(this.character.actor._id, this.query).sort((a, b) => a.order - b.order),
+			results: await Promise.all(searchResults),
 		} as unknown as FormApplication.Data<object, FormApplicationOptions>;
 	}
 
 	activateListeners(html: JQuery<HTMLElement>): void {
+
 		html.on('click', '.character-search-result .title', (event) => {
 				// Get the clicked element
 				const title = $(event.target);
