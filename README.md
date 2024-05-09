@@ -44,5 +44,6 @@ Used webpack and setup files as reference: https://github.com/anvil-vtt/FateX
 Used github workflow and template reference: https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template   
 
 # TODOs:
-- figure out why variable substitution on release isn't working
+- experiment with other search libraries
+- tests lol
 
