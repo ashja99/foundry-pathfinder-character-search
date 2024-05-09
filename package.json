@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
+    "@types/lunr": "^2.3.7",
     "@types/marked": "^2.0.2",
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -41,6 +42,7 @@
     "webpack-import-glob-loader": "^1.6.3"
   },
   "dependencies": {
-    "flexsearch": "^0.7.43"
+    "flexsearch": "^0.7.43",
+    "lunr": "^2.3.9"
   }
 }

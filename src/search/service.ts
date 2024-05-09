@@ -1,7 +1,7 @@
 // import stemmer from 'flexsearch/dist/lang/en.min.js';
 import { SearchIndex, SearchProvider, SearchResult } from './types';
 import { LogFn } from '../app/app';
-import Flexsearch from './flexsearch';
+import LunrSearchProvider from './providers/lunr';
 
 export class SearchService {
 	public indexes: Record<string, SearchIndex>;
@@ -13,22 +13,19 @@ export class SearchService {
 		this.log = logger;
 
 		// Update this line to use a difference search provider
-		this.searchProvider = new Flexsearch({logger});
+		this.searchProvider = new LunrSearchProvider({logger});
 	}
 	
 	public loadCharacter(character): void {
 
 		this.indexes[character.actor._id] = this.searchProvider.newIndex();
 
-		
-		character.items.map((item) => {
-			this.indexes[character.actor._id].add({
-				id: item._id,
-				type: item.type,
-				title: item.name,
-				description: this.extractTextFromItem(item)
-			});
-		});
+		this.indexes[character.actor._id].load(character.items.map((item) => ({
+			id: item._id,
+			type: item.type,
+			title: item.name,
+			description: this.extractTextFromItem(item)
+		})));
 
 	}
 

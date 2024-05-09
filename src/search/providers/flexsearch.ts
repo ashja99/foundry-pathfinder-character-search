@@ -1,5 +1,5 @@
-import { SearchProvider, SearchResult, SearchIndex } from './types';
-import { LogFn } from '../app/app';
+import { SearchProvider, SearchResult, SearchIndex, DataToIndex } from '../types';
+import { LogFn } from '../../app/app';
 import Document from 'flexsearch/dist/module/document';
 
 type RawSearchResult = {
@@ -58,13 +58,10 @@ class FlexsearchIndex implements SearchIndex {
 		});
 	}
 
-	add({id, type, title, description}) {
-		this.index.add({
-			id,
-			type,
-			title,
-			description
-		});
+	load(data: DataToIndex[]) {
+		data.map((entry) =>
+			this.index.add(entry)
+		);
 	}
 
 	search(query: string): SearchResult[] {
