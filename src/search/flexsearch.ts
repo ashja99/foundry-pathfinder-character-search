@@ -16,7 +16,7 @@ type RawSearchResult = {
 }
 
 function flattenSearchResults(results: RawSearchResult[]): SearchResult[] {
-	const flattenedSearchResults: SearchResult[] = [];
+	const flattenedSearchResults: any[]= [];
 
 	results.map((resultByField) => {
 		resultByField.result.map((searchResult) => {

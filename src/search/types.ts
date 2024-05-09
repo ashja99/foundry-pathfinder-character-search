@@ -16,12 +16,11 @@ export abstract class SearchProvider {
 
 export type SearchResult = {
 	id: string;
-	fields: string[];
 	order: number;
 	doc: {
 		id: string;
 		type: string;
 		title: string;
 		description: string;
-	}
-}
+	};
+};
