@@ -1,7 +1,14 @@
 import { LogFn } from "../app/app";
 
+export type DataToIndex = {
+	id: string;
+	type: string;
+	title: string;
+	description: string;
+}
+
 export interface SearchIndex {
-	add({id, type, title, description}): void;
+	load(data: DataToIndex[]): void;
 	search(query: string): SearchResult[];
 }
 
