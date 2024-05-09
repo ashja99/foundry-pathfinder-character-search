@@ -1,7 +1,7 @@
 {
   "name": "foundry-pathfinder-character-search",
   "title": "Character Search",
-  "description": "",
+  "description": "Search a character's items, actions, feats, and spells.",
   "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.0.0",

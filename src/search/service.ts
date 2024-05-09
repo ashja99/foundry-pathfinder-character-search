@@ -1,50 +1,24 @@
-import Document from 'flexsearch/dist/module/document';
+// import stemmer from 'flexsearch/dist/lang/en.min.js';
+import { SearchIndex, SearchProvider, SearchResult } from './types';
 import { LogFn } from '../app/app';
-
-export type SearchResult = {
-	id: string;
-	fields: string[];
-	order: number;
-	doc: {
-		id: string;
-		type: string;
-		title: string;
-		description: string;
-	}
-}
-
-type RawSearchResult = {
-	field: string;
-	result: {
-		id: string;
-		doc: {
-			id: string;
-			type: string;
-			title: string;
-			description: string;
-		}
-	}[]
-}
+import Flexsearch from './flexsearch';
 
 export class SearchService {
-	public indexes: Record<string, Document>;
+	public indexes: Record<string, SearchIndex>;
 	private log: LogFn;
+	private searchProvider: SearchProvider;
 
 	constructor(logger: LogFn) {
 		this.indexes = {};
 		this.log = logger;
+
+		// Update this line to use a difference search provider
+		this.searchProvider = new Flexsearch({logger});
 	}
 	
 	public loadCharacter(character): void {
 
-		this.indexes[character.actor._id] = new Document({
-			document: {
-				id: 'id',
-				tag: 'type',
-				index: ['title', 'description'],
-				store: true
-			}
-		});
+		this.indexes[character.actor._id] = this.searchProvider.newIndex();
 
 		
 		character.items.map((item) => {
@@ -81,35 +55,11 @@ export class SearchService {
 			return [];
 		}
 
-		const results = this.indexes[characterId].search(query, {enrich: true});
+		const results = this.indexes[characterId].search(query);
 
 		this.log('Search results', results);
 
-		return this.flattenSearchResults(results);
-	}
-
-	private flattenSearchResults(results: RawSearchResult[]): SearchResult[] {
-		const flattenedSearchResults: SearchResult[] = [];
-
-		results.map((resultByField) => {
-			resultByField.result.map((searchResult) => {
-				const existingResult = flattenedSearchResults.find((result) => result.id === searchResult.id);
-				if (existingResult) {
-					if (!existingResult.fields.includes(resultByField.field)) {
-						existingResult.fields.push(resultByField.field);
-					}
-				} else {
-					flattenedSearchResults.push({
-						id: searchResult.id,
-						fields: [resultByField.field],
-						order: resultByField.field === 'title'? 0: 1,
-						doc: searchResult.doc
-					});
-				}
-			});
-		});
-
-		return flattenedSearchResults;
+		return results;
 	}
 
 }
