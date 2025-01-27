@@ -1,18 +1,15 @@
 import { SearchService } from "./service";
-import { LogFn } from "../app/app";
 
 export class SearchAppConfig extends FormApplication {
   static searchAppId = 'foundry-pathfinder-character-search';
 
   private searchService: SearchService;
-	private log: LogFn;
 	private character;
 	private query = '';
 
-  constructor(character, searchService: SearchService, log: LogFn) {
+  constructor(character, searchService: SearchService) {
     super({});
     this.searchService = searchService;
-		this.log = log;
 		this.character = character;
 	}
 

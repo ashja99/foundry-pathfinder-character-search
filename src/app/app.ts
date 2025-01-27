@@ -42,7 +42,7 @@ export class AppConfig extends Application {
     this.searchService.loadCharacter(actor);
   
     html.on('click', '.character-search-icon-button', (_) => {
-      const newWindow = new SearchAppConfig(actor, this.searchService, this.log);
+      const newWindow = new SearchAppConfig(actor, this.searchService);
       newWindow.render(true, {character: actor} as unknown as FormApplicationOptions);
     });
   }
