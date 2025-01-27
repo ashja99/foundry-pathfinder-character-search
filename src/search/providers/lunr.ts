@@ -1,15 +1,27 @@
 import { SearchProvider, SearchResult, SearchIndex, DataToIndex } from '../types';
 import * as lunr from 'lunr';
 
+function whitelistPlugin(builder: lunr.Builder, whitelist: string[]) {
+	function stopWordWhitelist(token: lunr.Token) {
+		// pass any token in the whitelist through
+		if (whitelist.includes(token.toString())) return token;
+		// all other tokens should be passed through the normal filter
+		return lunr.stopWordFilter(token);
+	}
+
+	lunr.Pipeline.registerFunction(stopWordWhitelist, 'stopWordWhitelist')
+
+	builder.pipeline.before(lunr.stopWordFilter, stopWordWhitelist)
+	builder.pipeline.remove(lunr.stopWordFilter)
+
+}
 class LunrIndex implements SearchIndex {
 	private index: lunr.Index;
 	private dataSet: Record<string, { id: string, type: string, title: string, description: string }>;
 
 	constructor() {
+		// This index esstinally gets overwritten in the load method, since lunr indexes need all data ready at creation
 		this.index = lunr(function() {
-			this.ref('id')
-			this.field('title')
-			this.field('description')
 		});
 		this.dataSet = {};
 	}
@@ -19,6 +31,8 @@ class LunrIndex implements SearchIndex {
 			this.ref('id')
 			this.field('title')
 			this.field('description')
+			// "will" is a stopword in lunr, but important in pathfinder
+			this.use(whitelistPlugin, ['will'])
 			data.forEach((doc) => this.add(doc));
 		});
 		
