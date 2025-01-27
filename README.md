@@ -41,6 +41,6 @@ Used webpack and setup files as reference: https://github.com/anvil-vtt/FateX
 Used github workflow and template reference: https://github.com/League-of-Foundry-Developers/FoundryVTT-Module-Template   
 
 # TODOs:
-- experiment with other search libraries
+- add type filter
 - tests lol
 
