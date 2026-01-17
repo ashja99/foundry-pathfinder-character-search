@@ -39,7 +39,7 @@ export class SearchAppConfig extends FormApplication {
 		}
 	}
 
-	async getData(): Promise<FormApplication.Data<object, FormApplicationOptions>> {
+	async getData(): Promise<FormApplication.FormApplicationData> {
 		const searchResults = this.searchService
 			.searchCharacter(this.character.actor._id, this.query)
 			.sort((a, b) => a.order - b.order)
@@ -52,7 +52,7 @@ export class SearchAppConfig extends FormApplication {
 		return {
 			character: this.character,
 			results: await Promise.all(searchResults),
-		} as unknown as FormApplication.Data<object, FormApplicationOptions>;
+		} as unknown as FormApplication.FormApplicationData;
 	}
 
 	activateListeners(html: JQuery<HTMLElement>): void {

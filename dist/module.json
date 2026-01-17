@@ -1,12 +1,10 @@
 {
-  "name": "foundry-pathfinder-character-search",
+  "id": "foundry-pathfinder-character-search",
   "title": "Character Search",
   "description": "Search a character's items, actions, feats, and spells.",
   "version": "#{VERSION}#",
   "library": "false",
   "manifestPlusVersion": "1.0.0",
-  "minimumCoreVersion": "0.7.9",
-  "compatibleCoreVersion": "0.7.9",
   "authors": [
     {
       "name": "ashja99",
@@ -44,7 +42,7 @@
     ]
   },
   "compatibility": {
-    "minimum": "0.7.9",
-    "verified": "0.7.9"
+    "minimum": "11",
+    "verified": "11"
   }
 }

@@ -42,5 +42,6 @@ Used github workflow and template reference: https://github.com/League-of-Foundr
 
 # TODOs:
 - add type filter
+- fix whatever is happening with logging errors
 - tests lol
 

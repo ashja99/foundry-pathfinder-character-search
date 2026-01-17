@@ -20,7 +20,7 @@ export class SearchService {
 
 		this.indexes[character.actor._id] = this.searchProvider.newIndex();
 
-		this.indexes[character.actor._id].load(character.items.map((item) => ({
+		this.indexes[character.actor._id].load(character.document.items.map((item) => ({
 			id: item._id,
 			type: item.type,
 			title: item.name,

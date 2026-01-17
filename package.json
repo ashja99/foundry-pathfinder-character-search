@@ -12,7 +12,8 @@
   "author": "ashja99",
   "license": "MIT",
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
+    "@league-of-foundry-developers/foundry-vtt-types": "^13.340.1",
+    "@types/jquery": "^3.5.33",
     "@types/lunr": "^2.3.7",
     "@types/marked": "^2.0.2",
     "@types/webpack-env": "^1.16.0",
@@ -35,10 +36,10 @@
     "string-replace-loader": "^3.0.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.1.0",
-    "typescript": "~5.3",
+    "typescript": "~5.4",
     "webpack": "^5.33.2",
     "webpack-cli": "^5.0.0",
-    "webpack-dev-server": "^4.15.1",
+    "webpack-dev-server": "^5.2.3",
     "webpack-import-glob-loader": "^1.6.3"
   },
   "dependencies": {
