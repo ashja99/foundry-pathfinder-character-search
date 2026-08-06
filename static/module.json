@@ -4,7 +4,6 @@
   "description": "Search a character's items, actions, feats, and spells.",
   "version": "#{VERSION}#",
   "library": "false",
-  "manifestPlusVersion": "1.0.0",
   "authors": [
     {
       "name": "ashja99",
@@ -42,7 +41,7 @@
     ]
   },
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "13",
+    "verified": "14.365"
   }
 }

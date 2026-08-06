@@ -35,7 +35,7 @@ export class AppConfig extends Application {
     return mergedOptions;
   }
 
-  public onSheetRender(html: JQuery<HTMLElement>, actor: any) {
+  public init(html: JQuery<HTMLElement>, actor: any) {
     const characterDetails = html.find(`h4.window-title`);
     characterDetails.append(this.searchButtonHTML);
     this.log('Loading character', actor);

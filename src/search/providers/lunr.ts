@@ -1,3 +1,8 @@
+// Polyfill for lunr.js which expects global object
+if (typeof window !== 'undefined' && typeof (window as any).global === 'undefined') {
+	(window as any).global = window;
+}
+
 import { SearchProvider, SearchResult, SearchIndex, DataToIndex } from '../types';
 import * as lunr from 'lunr';
 
